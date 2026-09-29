@@ -1,12 +1,21 @@
+"use client";
 import React from 'react';
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
+
+const {data} = useSession();
+
+console.log(data);
+
   return (
     <div>
-      Hello world
+      <h2>Hello World</h2>
+      <Button onClick={() => signOut()}>SignOut</Button>
     </div>
-  );
+  ); 
 }
 
 const styles: Record<string, React.CSSProperties> = {
